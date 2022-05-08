@@ -1,0 +1,66 @@
+set number
+filetype plugin indent on
+set guicursor=
+set incsearch
+set relativenumber
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+"set autoindent
+"set smartindent
+set mouse=a
+syntax on
+set backspace=indent,eol,start
+set hidden
+setlocal colorcolumn=80
+set nohlsearch
+set scrolloff=8
+set signcolumn=yes
+syntax enable
+set wildmenu
+set list!
+
+let $RTP=split(&runtimepath, ',')[0]
+let $RC="$HOME/.vim/vimrc"
+
+set path=.,**
+set noswapfile
+
+" Colors - do not change order
+let g:gruvbox_bold = '1'
+let g:gruvbox_italic = '1'
+let g:gruvbox_underline = '1'
+let g:gruvbox_undercurl = '1'
+let g:gruvbox_bold = '1'
+let g:gruvbox_contrast_dark = 'soft'
+colorscheme gruvbox
+    "Previous gruvbox command - autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
+set termguicolors
+set nocompatible
+
+" Mappings
+let mapleader = " "
+    " visual block
+nnoremap <Leader>v <c-v>
+    " compile and run in vert term
+nnoremap <Leader>5 :w <bar> :make %:r <CR> <bar> :copen <CR>
+nnoremap <Leader>6 :ccl <bar> :vert term ./%< <CR>
+    " indentation for curly braces C
+nnoremap <leader>[ i<right>{<Left><CR><Right><CR>
+nnoremap <leader>] i<right>{<Left><CR><Right><CR>}<Up><CR>
+
+" Vim-Plug
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
+call plug#end()
