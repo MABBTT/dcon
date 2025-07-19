@@ -116,3 +116,14 @@ if ! shopt -oq posix; then
   fi
 fi
 alias config='/usr/bin/git --git-dir=/home/bob/.cfg/ --work-tree=/home/bob'
+
+# Add DNS entry for Windows host
+if ! $(cat /etc/hosts | grep -q 'winhost'); then
+  echo 'Adding DNS entry for Windows host in /etc/hosts'
+  echo '\n# Windows host - added via ~/.bashhrc' | sudo tee -a /etc/hosts
+  echo -e "$(grep nameserver /etc/resolv.conf | awk '{print $2, "   winhost"}')" | sudo tee -a /etc/hosts
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
