@@ -1,5 +1,5 @@
 dcon
-
+https://gist.githubusercontent.com/MABBTT/c8896234ca51667a97d0bebd38ee37f1/raw/1f61662508eefe8b24f495124690985f47ed9cc9/dcon_install.sh
 
 https://www.atlassian.com/git/tutorials/dotfiles
 Dotfiles: Best way to store in a bare git repository
